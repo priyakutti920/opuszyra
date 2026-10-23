@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://opuszenvix.live/sitemap.xml
+Sitemap: https://opuszyra.live/sitemap.xml

@@ -9,7 +9,7 @@ export function getRawSupportPhoneNumber(): string {
   if (typeof envPhone === 'string' && envPhone.trim()) {
     return envPhone.trim();
   }
-  return '918525813179';
+  return '';
 }
 
 export function getCleanSupportPhoneDigits(): string {
@@ -35,15 +35,12 @@ export function getSupportTelUrl(): string | null {
   const digits = getCleanSupportPhoneDigits();
   // Valid telephone numbers require at least 7 digits
   if (digits.length < 7) return null;
-  const fullPhone = digits.length === 10 ? `91${digits}` : digits;
-  return `tel:+${fullPhone}`;
+  return `tel:+${digits}`;
 }
 
 export function getWhatsAppSupportUrl(defaultMessage?: string): string | null {
   const digits = getCleanSupportPhoneDigits();
   if (digits.length < 7) return null;
-  const fullPhone = digits.length === 10 ? `91${digits}` : digits;
   const text = defaultMessage ? `?text=${encodeURIComponent(defaultMessage)}` : '';
-  return `https://wa.me/${fullPhone}${text}`;
+  return `https://wa.me/${digits}${text}`;
 }
-
